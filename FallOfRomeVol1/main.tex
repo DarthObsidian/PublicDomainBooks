@@ -1,0 +1,51 @@
+\documentclass{memoir}
+
+%Packages
+\usepackage{endnotes}
+\let\footnote=\endnote
+\let\footnotemark=\endnotemark
+\let\footnotetext=\endnotetext
+
+%0ther
+\def\headline#1{\hbox to \hsize{\hrulefill\quad\lower.3em\hbox{#1}\quad\hrulefill}}
+\newcommand{\doendnotes}{%
+	\theendnotes
+	\setcounter{endnote}{0}
+}
+
+%Table of Contents
+\makeatletter
+\def\cftsectionpresnum #1\@cftasnum{}
+\makeatother
+
+%Chapter style
+\makechapterstyle{custom} {%
+	\renewcommand{\chapterheadstart}{}
+	\renewcommand{\printchaptername}{}
+	\renewcommand{\chapternamenum}{}
+	\renewcommand{\printchapternum}{}
+	\renewcommand{\printchaptertitle}[1]{%
+		\raggedright\Large\scshape}
+	\renewcommand{\afterchaptertitle}{%
+		\vskip\onelineskip \hrule\vskip\onelineskip}
+}
+\chapterstyle{custom}
+
+%Section
+\setsecheadstyle{\raggedright\scshape\MakeLowercase}
+\setbeforesecskip{-\onelineskip}
+\setaftersecskip{\onelineskip}
+%\setsectionmark
+
+\begin{document}
+\frontmatter
+\include{title}
+\tableofcontents*
+\include{introduction}
+\doendnotes
+
+\mainmatter
+\include{chapter1.1}
+\doendnotes
+
+\end{document}
