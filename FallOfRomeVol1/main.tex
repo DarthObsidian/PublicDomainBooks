@@ -1,4 +1,4 @@
-\documentclass{memoir}
+\documentclass[letterpaper]{memoir}
 
 %Packages
 \usepackage{endnotes}
@@ -20,23 +20,31 @@
 
 %Chapter style
 \makechapterstyle{custom} {%
-	\renewcommand{\thechapter}{\Roman{chapter}
+	\renewcommand{\thechapter}{\Roman{chapter}}
 	\renewcommand{\chapterheadstart}{}
 	\renewcommand{\printchaptername}{}
 	\renewcommand{\chapternamenum}{}
-	\renewcommand{\printchapternum}{}
+	\renewcommand{\printchapternum}{\headline{\huge Chapter \thechapter}}
+	\renewcommand{\afterchapternum}{}
 	\renewcommand{\printchaptertitle}[1]{%
-		\raggedright\Large\scshape}
+		\raggedright\huge\scshape\MakeLowercase{##1}}
 	\renewcommand{\afterchaptertitle}{%
 		\vskip\onelineskip \hrule\vskip\onelineskip}
 }
 \chapterstyle{custom}
 
 %Section
-\setsecheadstyle{\raggedright\scshape\MakeLowercase}
+\renewcommand{\thesection}{\Roman{section}}
+\setsecheadstyle{\raggedright\scshape\large}
 \setbeforesecskip{-\onelineskip}
 \setaftersecskip{\onelineskip}
-%\setsectionmark
+\setsecnumformat{}
+\renewcommand{\sectionmark}{\markboth{Chapter \thechapter.}{Part \thesection.}}
+
+%subsection
+\setsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\itshape}
+\setbeforesubsecskip{-\onelineskip}
+\setaftersubsecskip{\onelineskip}
 
 \begin{document}
 \frontmatter
