@@ -13,13 +13,12 @@
 	\theendnotes
 	\setcounter{endnote}{0}
 }
-%\makeoddhead{myheadings}{\textit{Part \thesection.}}{}{\thepage}
-%\makeevenhead{myheadings}{\thepage}{}{\textit{Chapter \thechapter.}}
 
 %Table of Contents
 \makeatletter
 \def\cftsectionpresnum #1\@cftasnum{}
 \makeatother
+\setlength\cftchapternumwidth{3em}
 
 %Chapter style
 \makechapterstyle{custom} {%
@@ -57,7 +56,6 @@
 \doendnotes
 
 \mainmatter
-%\pagestyle{myheadings}
 \include{chapter1.1}
 \include{chapter1.2}
 \include{chapter1.3}
@@ -77,6 +75,9 @@
 \include{chapter5.2}
 \doendnotes
 \include{chapter6.1}
+\include{chapter6.2}
+\include{chapter6.3}
+\include{chapter6.4}
 \doendnotes
 
 \end{document}
