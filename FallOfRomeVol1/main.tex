@@ -1,4 +1,4 @@
-\documentclass[letterpaper]{memoir}
+\documentclass[letterpaper, openright]{memoir}
 
 %Packages
 \usepackage{endnotes}
@@ -9,9 +9,12 @@
 %0ther
 \def\headline#1{\hbox to \hsize{\hrulefill\quad\lower.3em\hbox{#1}\quad\hrulefill}}
 \newcommand{\doendnotes}{%
+	\markright{Notes}
 	\theendnotes
 	\setcounter{endnote}{0}
 }
+%\makeoddhead{myheadings}{\textit{Part \thesection.}}{}{\thepage}
+%\makeevenhead{myheadings}{\thepage}{}{\textit{Chapter \thechapter.}}
 
 %Table of Contents
 \makeatletter
@@ -39,7 +42,7 @@
 \setbeforesecskip{-\onelineskip}
 \setaftersecskip{\onelineskip}
 \setsecnumformat{}
-\renewcommand{\sectionmark}{\markboth{Chapter \thechapter.}{Part \thesection.}}
+\renewcommand{\sectionmark}[1]{\markboth{Chapter \thechapter.}{Part \thesection.}}
 
 %subsection
 \setsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\itshape}
@@ -54,7 +57,26 @@
 \doendnotes
 
 \mainmatter
+%\pagestyle{myheadings}
 \include{chapter1.1}
+\include{chapter1.2}
+\include{chapter1.3}
+\doendnotes
+\include{chapter2.1}
+\include{chapter2.2}
+\include{chapter2.3}
+\include{chapter2.4}
+\doendnotes
+\include{chapter3.1}
+\include{chapter3.2}
+\doendnotes
+\include{chapter4.1}
+\include{chapter4.2}
+\doendnotes
+\include{chapter5.1}
+\include{chapter5.2}
+\doendnotes
+\include{chapter6.1}
 \doendnotes
 
 \end{document}
