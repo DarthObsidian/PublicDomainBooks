@@ -1,10 +1,4 @@
-\documentclass[letterpaper, openright]{memoir}
-
-%Packages
-\usepackage{endnotes}
-\let\footnote=\endnote
-\let\footnotemark=\endnotemark
-\let\footnotetext=\endnotetext
+\documentclass[letterpaper, 10pt, openright]{memoir}
 
 %0ther
 \renewcommand{\and}{\\\vskip 1em}
@@ -56,65 +50,28 @@
 \setbeforesubsecskip{-\onelineskip}
 \setaftersubsecskip{\onelineskip}
 
+%EndNotes
+\makepagenote
+\renewcommand{\idtextinnotes}[1]{\footnotesize#1}
+\renewcommand{\prenoteinnotes}{\par\noindent\hangindent 2em}
+\renewcommand{\prenotetext}{%
+	\begingroup
+	\footnotesize
+	\itshape
+	\markboth{Chapter \thechapter.}{\notesname}
+}
+\renewcommand{\postnotetext}{\endgroup}
+\renewcommand{\notedivision}{\headline{\huge\notesname}}
+
 \begin{document}
 \frontmatter
 \include{title}
 \tableofcontents*
 \include{introduction}
-\doendnotes
+\printpagenotes*
 
 \mainmatter
 \include{chapter01.1}
-\include{chapter01.2}
-\include{chapter01.3}
-\doendnotes
-\include{chapter02.1}
-\include{chapter02.2}
-\include{chapter02.3}
-\include{chapter02.4}
-\doendnotes
-\include{chapter03.1}
-\include{chapter03.2}
-\doendnotes
-\include{chapter04.1}
-\include{chapter04.2}
-\doendnotes
-\include{chapter05.1}
-\include{chapter05.2}
-\doendnotes
-\include{chapter06.1}
-\include{chapter06.2}
-\include{chapter06.3}
-\include{chapter06.4}
-\doendnotes
-\include{chapter07.1}
-\include{chapter07.2}
-\include{chapter07.3}
-\doendnotes
-\include{chapter08.1}
-\include{chapter08.2}
-\doendnotes
-\include{chapter09.1}
-\include{chapter09.2}
-\include{chapter09.3}
-\doendnotes
-\include{chapter10.1}
-\include{chapter10.2}
-\include{chapter10.3}
-\include{chapter10.4}
-\doendnotes
-\include{chapter11.1}
-\include{chapter11.2}
-\include{chapter11.3}
-\doendnotes
-\include{chapter12.1}
-\include{chapter12.2}
-\include{chapter12.3}
-\doendnotes
-\include{chapter13.1}
-\include{chapter13.2}
-\include{chapter13.3}
-\include{chapter13.4}
-\doendnotes
+\printpagenotes*
 
 \end{document}
