@@ -52,16 +52,16 @@
 
 %EndNotes
 \makepagenote
-\renewcommand{\idtextinnotes}[1]{\footnotesize#1}
+\renewcommand{\idtextinnotes}[1]{\footnotesize#1)\space}
 \renewcommand{\prenoteinnotes}{\par\noindent\hangindent 2em}
-\renewcommand{\prenotetext}{%
-	\begingroup
-	\footnotesize
-	\itshape
-	\markboth{Chapter \thechapter.}{\notesname}
-}
+\renewcommand{\prenotetext}{\begingroup\footnotesize}
 \renewcommand{\postnotetext}{\endgroup}
-\renewcommand{\notedivision}{\headline{\huge\notesname}}
+\renewcommand{\notedivision}{%
+	\headline{\huge\notesname}\vskip\onelineskip
+	\markboth{Chapter \thechapter.}{\notesname}
+	\thispagestyle{simple}
+}
+\renewcommand{\pagenotesubhead}[3]{}
 
 \begin{document}
 \frontmatter
