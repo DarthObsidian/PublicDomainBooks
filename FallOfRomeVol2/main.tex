@@ -1,4 +1,9 @@
 \documentclass[letterpaper, 10pt, openright]{memoir}
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.3cm}{*}{1}
+\checkandfixthelayout
 
 %0ther
 \renewcommand{\and}{\\\vskip 1em}
@@ -29,9 +34,10 @@
 	\renewcommand{\printchaptername}{}
 	\renewcommand{\chapternamenum}{}
 	\renewcommand{\printchapternum}{\headline{\huge Chapter \thechapter}}
-	\renewcommand{\afterchapternum}{}
+	\renewcommand{\afterchapternum}{%
+		\vspace{1mm}}
 	\renewcommand{\printchaptertitle}[1]{%
-		\raggedright\huge\scshape\MakeLowercase{##1}}
+		\raggedright\huge\scshape{##1}}
 	\renewcommand{\afterchaptertitle}{%
 		\vskip\onelineskip \hrule\vskip\onelineskip}
 }
