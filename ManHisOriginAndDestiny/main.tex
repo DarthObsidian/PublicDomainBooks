@@ -1,0 +1,63 @@
+\documentclass[letterpaper, 12pt, openany]{memoir}
+
+\usepackage{fmtcount}
+
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+
+\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{*}{1}
+\checkandfixthelayout 
+
+%Table of Contents
+\makeatletter
+\def\cftsectionpresnum #1\@cftasnum{}
+\makeatother
+\setlength\cftchapternumwidth{3em}
+\cftpagenumbersoff{chapter}
+\renewcommand{\contentsname}{\huge{Table} \Large{of} \huge{Contents}}
+
+%Chapter style
+\makechapterstyle{custom} {%
+	\renewcommand{\chapterheadstart}{}
+	\renewcommand{\printchaptername}{}
+	\renewcommand{\chapternamenum}{}
+	\renewcommand{\printchapternum}{\Huge\sffamily\MakeUppercase{Chapter} \NUMBERstringnum{\thechapter}}
+	\renewcommand{\afterchapternum}{\vskip\onelineskip}
+	\renewcommand{\printchaptertitle}[1]{%
+		\raggedright\Large\bfseries\sffamily\MakeUppercase{##1}}
+	\renewcommand{\afterchaptertitle}{\vskip\onelineskip}
+	\renewcommand{\chaptermark}[1]{\markboth{}{}}
+}
+\chapterstyle{custom}
+
+%Section
+\setsecheadstyle{\raggedright\sffamily\Large\bfseries}
+\setbeforesecskip{-\onelineskip}
+\setaftersecskip{\onelineskip}
+\setsecnumformat{}
+\renewcommand{\sectionmark}[1]{\markboth{}{}}
+
+%subsection
+\setsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\itshape}
+\setbeforesubsecskip{-\onelineskip}
+\setaftersubsecskip{\onelineskip}
+
+%paragraph
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+\raggedright
+\raggedbottom
+\include{introduction}
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+\include{chapter6}
+\include{chapter7}
+\end{document}
