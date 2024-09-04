@@ -1,0 +1,82 @@
+\documentclass[letterpaper, 10pt, openright]{memoir}
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.3cm}{*}{1}
+\checkandfixthelayout
+
+%0ther
+\renewcommand{\and}{\\\vskip 1em}
+\def\headline#1{\hbox to \hsize{\hrulefill\quad\lower.3em\hbox{#1}\quad\hrulefill}}
+\newcommand{\doendnotes}{%
+	\markright{Notes}
+	\theendnotes
+	\setcounter{endnote}{0}
+}
+\newcommand{\doubleline}{%
+	\hrule height 3\normalrulethickness
+	\vskip 0.25em
+	\hrule height \normalrulethickness
+}
+
+%Table of Contents
+\makeatletter
+\def\cftsectionpresnum #1\@cftasnum{}
+\makeatother
+\setlength\cftchapternumwidth{3em}
+\cftpagenumbersoff{chapter}
+\renewcommand{\contentsname}{\huge{Table} \Large{of} \huge{Contents}}
+
+%Chapter style
+\makechapterstyle{custom} {%
+	\renewcommand{\thechapter}{\Roman{chapter}}
+	\renewcommand{\chapterheadstart}{}
+	\renewcommand{\printchaptername}{}
+	\renewcommand{\chapternamenum}{}
+	\renewcommand{\printchapternum}{\headline{\huge Chapter \thechapter}}
+	\renewcommand{\afterchapternum}{%
+		\vspace{1mm}}
+	\renewcommand{\printchaptertitle}[1]{%
+		\raggedright\huge\scshape{##1}}
+	\renewcommand{\afterchaptertitle}{%
+		\vskip\onelineskip \hrule\vskip\onelineskip}
+}
+\chapterstyle{custom}
+\setcounter{chapter}{26}
+
+%Section
+\renewcommand{\thesection}{\Roman{section}}
+\setsecheadstyle{\raggedright\scshape\large}
+\setbeforesecskip{-\onelineskip}
+\setaftersecskip{\onelineskip}
+\setsecnumformat{}
+\renewcommand{\sectionmark}[1]{\markboth{Chapter \thechapter.}{Part \thesection.}}
+
+%subsection
+\setsubsecheadstyle{\sethangfrom{\noindent ##1}\raggedright\itshape}
+\setbeforesubsecskip{-\onelineskip}
+\setaftersubsecskip{\onelineskip}
+
+%EndNotes
+\makepagenote
+\renewcommand{\idtextinnotes}[1]{\footnotesize#1)\space}
+\renewcommand{\prenoteinnotes}{\par\noindent\hangindent 2em}
+\renewcommand{\prenotetext}{\begingroup\footnotesize}
+\renewcommand{\postnotetext}{\endgroup}
+\renewcommand{\notedivision}{%
+	\headline{\huge\notesname}\vskip\onelineskip
+	\markboth{Chapter \thechapter.}{\notesname}
+	\thispagestyle{simple}
+}
+\renewcommand{\pagenotesubhead}[3]{}
+
+\begin{document}
+\frontmatter
+\include{title}
+
+\mainmatter
+\include{chapter27}
+\printpagenotes*
+
+\end{document}
+
