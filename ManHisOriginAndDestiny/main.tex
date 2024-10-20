@@ -1,12 +1,14 @@
-\documentclass[letterpaper, 12pt, openany]{memoir}
+\documentclass[letterpaper, 17pt, openany]{memoir}
 
 \usepackage{fmtcount}
+\usepackage{microtype}
 
 \usepackage{fontspec}
 \setmainfont{Liberation Serif}
 \setsansfont{Liberation Sans}
+\tolerance=300
 
-\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+\setlrmarginsandblock{3.0cm}{2.5cm}{*}
 \setulmarginsandblock{2.5cm}{*}{1}
 \checkandfixthelayout 
 
@@ -50,7 +52,6 @@
 
 
 \begin{document}
-\raggedright
 \raggedbottom
 \include{introduction}
 \include{chapter1}
