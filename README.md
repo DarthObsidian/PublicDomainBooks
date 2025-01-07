@@ -1,1 +1,1 @@
-Most books text and files are obtained from Project Gutenburg: https://www.gutenberg.org/
+Most text and image files are obtained from Project Gutenburg: https://www.gutenberg.org/
