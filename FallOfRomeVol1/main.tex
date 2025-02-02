@@ -1,5 +1,13 @@
 \documentclass[letterpaper, 10pt, openright]{memoir}
 
+\setstocksize{8.5in}{5.5in}
+\settrimmedsize{8.5in}{5.5in}{*}
+\setlrmarginsandblock{0.5in}{1in}{*}
+\setulmarginsandblock{1in}{1in}{*}
+\checkandfixthelayout
+\pretolerance=500
+\tolerance=600
+
 %0ther
 \renewcommand{\and}{\\\vskip 1em}
 \def\headline#1{\hbox to \hsize{\hrulefill\quad\lower.3em\hbox{#1}\quad\hrulefill}}
@@ -15,7 +23,7 @@
 \makeatother
 \setlength\cftchapternumwidth{3em}
 \cftpagenumbersoff{chapter}
-\renewcommand{\contentsname}{\huge{Table} \Large{of} \huge{Contents}}
+\renewcommand{\contentsname}{Table of Contents}
 
 %Chapter style
 \makechapterstyle{custom} {%
@@ -48,7 +56,7 @@
 %EndNotes
 \makepagenote
 \renewcommand{\idtextinnotes}[1]{\footnotesize#1)\space}
-\renewcommand{\prenoteinnotes}{\par\noindent\hangindent 2em}
+\renewcommand{\prenoteinnotes}{\par\noindent\hangindent 1.5em}
 \renewcommand{\prenotetext}{\begingroup\footnotesize}
 \renewcommand{\postnotetext}{\endgroup}
 \renewcommand{\notedivision}{%
