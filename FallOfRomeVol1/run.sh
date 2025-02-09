@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-if [[ ! -d "./dump" ]]; then
+if [ ! -d "./dump" ]; then
 	mkdir ./dump
 fi
 
-lualatex --output-directory dump main.tex
+if [ ! $1 = s ]; then
+	lualatex --output-directory dump main.tex
+fi
 
-if [[ $1 = a ]]; then
+if [ $1 = a ] || [ $1 = s ]; then
 	lualatex --output-directory dump signature.tex
+	lualatex --output-directory dump signature2.tex
 fi
