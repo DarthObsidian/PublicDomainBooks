@@ -24,7 +24,14 @@ if [[ $1 = vol3 ]]; then
     lualatex --output-directory dump vol3.tex
 fi
 
+if [[ $1 = vol4 ]]; then
+    lualatex --output-directory dump vol4.tex
+fi
+
 if [[ $1 = vol3 ]] && [[ $2 = impose ]]; then
     lualatex --output-directory dump vol3-signature.tex
 fi
 
+if [[ $1 = vol4 ]] && [[ $2 = impose ]]; then
+    lualatex --output-directory dump vol4-signature.tex
+fi
