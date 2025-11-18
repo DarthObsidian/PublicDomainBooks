@@ -4,10 +4,8 @@ if [ ! -d "./dump" ]; then
 	mkdir ./dump
 fi
 
-if [ ! $1 = s ]; then
-	lualatex --output-directory dump main.tex
-fi
+lualatex --output-directory dump main.tex
 
-if [ $1 = a ] || [ $1 = s ]; then
+if [[ $1 = impose ]]; then
 	lualatex --output-directory dump signature.tex
 fi
