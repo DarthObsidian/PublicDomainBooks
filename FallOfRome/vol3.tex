@@ -1,18 +1,18 @@
 \documentclass[letterpaper, 10pt, openright]{memoir}
-
-\setstocksize{8.5in}{5.5in}
-\settrimmedsize{8.5in}{5.5in}{*}
-\setlrmarginsandblock{0.5in}{1in}{*}
-\setulmarginsandblock{1in}{1in}{*}
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.3cm}{*}{1}
 \checkandfixthelayout
-\pretolerance=700
-\tolerance=6000
-
-\raggedbottom
 
 %0ther
 \renewcommand{\and}{\\\vskip 1em}
 \def\headline#1{\hbox to \hsize{\hrulefill\quad\lower.3em\hbox{#1}\quad\hrulefill}}
+\newcommand{\doendnotes}{%
+	\markright{Notes}
+	\theendnotes
+	\setcounter{endnote}{0}
+}
 \newcommand{\doubleline}{%
 	\hrule height 3\normalrulethickness
 	\vskip 0.25em
@@ -25,7 +25,7 @@
 \makeatother
 \setlength\cftchapternumwidth{3em}
 \cftpagenumbersoff{chapter}
-\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\contentsname}{\huge{Table} \Large{of} \huge{Contents}}
 
 %Chapter style
 \makechapterstyle{custom} {%
@@ -34,13 +34,15 @@
 	\renewcommand{\printchaptername}{}
 	\renewcommand{\chapternamenum}{}
 	\renewcommand{\printchapternum}{\headline{\huge Chapter \thechapter}}
-	\renewcommand{\afterchapternum}{}
+	\renewcommand{\afterchapternum}{%
+		\vspace{1mm}}
 	\renewcommand{\printchaptertitle}[1]{%
-		\raggedright\huge\scshape\MakeLowercase{##1}}
+		\raggedright\huge\scshape{##1}}
 	\renewcommand{\afterchaptertitle}{%
 		\vskip\onelineskip \hrule\vskip\onelineskip}
 }
 \chapterstyle{custom}
+\setcounter{chapter}{26}
 
 %Section
 \renewcommand{\thesection}{\Roman{section}}
@@ -58,7 +60,7 @@
 %EndNotes
 \makepagenote
 \renewcommand{\idtextinnotes}[1]{\footnotesize#1)\space}
-\renewcommand{\prenoteinnotes}{\par\noindent\hangindent 1.5em}
+\renewcommand{\prenoteinnotes}{\par\noindent\hangindent 2em}
 \renewcommand{\prenotetext}{\begingroup\footnotesize}
 \renewcommand{\postnotetext}{\endgroup}
 \renewcommand{\notedivision}{%
@@ -70,41 +72,17 @@
 
 \begin{document}
 \frontmatter
-\include{title}
+\include{vol3-title}
 \tableofcontents*
-\include{introduction}
-\printpagenotes*
 
 \mainmatter
-\include{chapter01}
+\include{chapter27}
 \printpagenotes*
-\include{chapter02}
+\include{chapter28}
 \printpagenotes*
-\include{chapter03}
+\include{chapter29}
 \printpagenotes*
-\include{chapter04}
-\printpagenotes*
-\include{chapter05}
-\printpagenotes*
-\include{chapter06}
-\printpagenotes*
-\include{chapter07}
-\printpagenotes*
-\include{chapter08}
-\printpagenotes*
-\include{chapter09}
-\printpagenotes*
-\include{chapter10}
-\printpagenotes*
-\include{chapter11}
-\printpagenotes*
-\include{chapter12}
-\printpagenotes*
-\include{chapter13}
-\printpagenotes*
-\include{chapter14}
-\printpagenotes*
-\include{chapter15}
+\include{chapter30}
 \printpagenotes*
 
 \end{document}
