@@ -41,3 +41,11 @@ fi
 if [[ $1 = vol5 ]] && [[ $2 = impose ]]; then
     lualatex --output-directory dump vol5-signature.tex
 fi
+
+if [[ $1 = vol6 ]]; then
+    lualatex --output-directory dump vol6.tex
+fi
+
+if [[ $1 = vol6 ]] && [[ $2 = impose ]]; then
+    lualatex --output-directory dump vol6-signature.tex
+fi
