@@ -1,0 +1,30 @@
+\documentclass[letterpaper, 10pt]{memoir}
+
+\usepackage{tikz}
+
+\setstocksize{8.5in}{5.5in}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+
+\tikzset{normal lines/.style={gray, very thin}}
+\tikzset{margin lines/.style={gray, thick}}
+\tikzset{mm lines/.style={gray, ultra thin}}
+\tikzset{strong lines/.style={black, very thin}}
+\tikzset{master lines/.style={black, very thick}}
+\tikzset{dashed master lines/.style={loosely dashed, black, very thick}}
+
+\node at (current page.south west){
+  \begin{tikzpicture}[remember picture, overlay]
+
+      \foreach \y in {0, 0.48,...,20.16}
+      \draw[style=normal lines](0.2,\y) -- (5.3in, \y);
+    \draw[style=normal lines] (0.5in,0.2)--(0.5in,8.3in);
+
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+\end{document}
